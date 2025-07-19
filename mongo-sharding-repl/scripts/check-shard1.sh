@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ###
-#Проверьте документы на 2 шарде
+#Проверьте документы на 1 шарде
 ###
 
-docker compose exec -T shard2 mongosh --port 27019 <<EOF
+docker compose exec -T shard1 mongosh --port 27018 <<EOF
 use somedb;
 var count = db.helloDoc.countDocuments();
-print("Количество документов shard2: " + count);
+print("Количество документов shard1: " + count);
 EOF
 
 echo "Скрипт выполнен. Результаты выше."
