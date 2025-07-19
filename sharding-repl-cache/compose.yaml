@@ -6,11 +6,21 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mongos_router
+      - redis
     ports:
       - 8080:8080
     environment:
       MONGODB_URL: "mongodb://mongos_router:27020"
       MONGODB_DATABASE_NAME: "somedb"
+      REDIS_URL: "redis://redis:6379"
+
+  redis:
+    container_name: redis
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data    
 
   configSrv:
     image: mongo:latest
@@ -186,3 +196,4 @@ volumes:
   shard2_data:
   shard2_secondary1_data:
   shard2_secondary2_data:
+  redis_data:

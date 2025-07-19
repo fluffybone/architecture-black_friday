@@ -2,7 +2,7 @@
 
 ## Как запустить
 
-Перейти в папку mongo-sharding-repl
+Перейти в папку sharding-repl-cache
 
 Запускаем mongodb и приложение
 
@@ -48,4 +48,9 @@ docker compose up -d
 
 `docker exec -it shard2 mongosh --port 27019 --eval "rs.status()"`
 
+
 Откройте в браузере http://localhost:8080
+
+Отрыть сеть ->перйти на url http://localhost:8080/helloDoc/users (обратить внимание на время выполнения запроса)
+обновить страницу снова посмотреть на время выполнение нашего запроса  http://localhost:8080/helloDoc/users
+теперь данные достаются из кеша и ответ быстрее (было: 1.02 s, стало: 6ms)

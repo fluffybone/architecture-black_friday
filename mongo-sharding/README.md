@@ -37,3 +37,5 @@ docker compose up -d
 ```shell
 ./scripts/check-shard2.sh
 ```
+
+Откройте в браузере http://localhost:8080
